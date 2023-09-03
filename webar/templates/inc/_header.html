@@ -1,4 +1,5 @@
 {% load static %}
+{% load menu_tags %}
 <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
@@ -17,6 +18,8 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    {% show_top_menu %}
+                    <!--
                     <ul class="navbar-nav  ">
                         <li class="nav-item active">
                             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
@@ -31,6 +34,7 @@
                             <a class="nav-link" href="contact.html">Contact Us</a>
                         </li>
                     </ul>
+                    -->
                     <div class="quote_btn-container">
                         <a href="" class="quote_btn">
                             Get A Quote

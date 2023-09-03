@@ -3,10 +3,7 @@ from django.urls import reverse
 
 # Create your models here.
 
-class Category(models.Model):
-    #def _(str):
-        #pass
-    #title = models.CharField(_("dd"), max_length=128)
+class Page(models.Model):
     title = models.CharField(max_length=128, blank=False, verbose_name='title')
     slug = models.SlugField(max_length=256, unique=True, verbose_name='url')
     description = models.TextField(blank=True, verbose_name='description')

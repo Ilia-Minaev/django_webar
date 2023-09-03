@@ -1,0 +1,7 @@
+<ul class="navbar-nav  ">
+    {% for m_item in menu_items %}
+        <li class="nav-item active">
+            <a class="nav-link" href="/{{ m_item.slug }}/">{{ m_item.title }}</a>
+        </li>
+    {% endfor %}
+</ul>

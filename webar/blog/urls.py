@@ -20,8 +20,9 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from blog.views import Home
+from blog.views import HomeView, PageView
 
 urlpatterns = [
-    path('', Home.as_view() , name='home'),
+    path('', HomeView.as_view() , name='home'),
+    path('<slug>/', PageView.as_view() , name='page'),
 ]
