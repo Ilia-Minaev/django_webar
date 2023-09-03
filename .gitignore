@@ -1,0 +1,7 @@
+venv/
+.vscode/
+Digian Free Website Template - Free-CSS.com/
+*.pyc
+*.zip
+
+help.txt
