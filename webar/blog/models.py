@@ -20,6 +20,6 @@ class Page(models.Model):
         return reverse("model_detail", kwargs={"pk": self.pk})
     
     class Meta:
-        verbose_name = 'Category'
-        verbose_name_plural = 'Categories'
+        verbose_name = 'Page'
+        verbose_name_plural = 'Pages'
 
