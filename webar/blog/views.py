@@ -1,5 +1,7 @@
+from typing import Any, Optional
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, RedirectView
+from django.urls import reverse_lazy
 
 from blog.models import Page
 
@@ -19,10 +21,16 @@ class HomeView(ListView):
         context['meta_keywords'] = page.meta_keywords
         return context
     
+class HomeRedirectView(RedirectView):
+    url = reverse_lazy('home')
+
+    def get_redirect_url(self, *args: Any, **kwargs: Any) -> str | None:
+        return super().get_redirect_url(*args, **kwargs)
+    
 class PageView(ListView):
     model = Page
     template_name = 'blog/page.html'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         page = Page.objects.get(slug=self.kwargs['slug'])
