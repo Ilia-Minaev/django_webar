@@ -1,3 +1,10 @@
+$(document).ready(function () {
+    $('#menu-top [href]').each(function() {  
+    if (this.href == window.location.href) {
+                $(this).parent().addClass('active');
+            }
+        });
+});
 // to get current year
 function getYear() {
     var currentDate = new Date();
