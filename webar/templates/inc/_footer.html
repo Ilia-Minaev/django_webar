@@ -7,7 +7,7 @@
                 <div class="col-md-6 col-lg-3 ">
                     <div class="info_detail">
                         <h4>
-                            Digian
+                            {{ site_name }}
                         </h4>
                         <p>
                             Necessary, making this the first true generator on the Internet. It uses a dictionary of
@@ -40,39 +40,71 @@
                             Address
                         </h4>
                         <div class="contact_link_box">
+                            {% if address %}
                             <a href="">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <span>
-                                    Location
+                                    {{ address }}
                                 </span>
                             </a>
-                            <a href="">
+                            {% endif %}
+                            {% if phone1 %}
+                            <a href="tel:{{ phone1 }}">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                                 <span>
-                                    Call +01 1234567890
+                                    {{ phone1 }}
                                 </span>
                             </a>
-                            <a href="">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            {% endif %}
+                            {% if phone2 %}
+                            <a href="tel:{{ phone2 }}">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
                                 <span>
-                                    demo@gmail.com
+                                    {{ phone2 }}
                                 </span>
                             </a>
+                            {% endif %}
+                            {% if phone1 %}
+                            <a href="">
+                                <i class="mail:{{ mail }}" aria-hidden="true"></i>
+                                <span>
+                                    {{ mail }}
+                                </span>
+                            </a>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="info_social">
-                        <a href="">
+                        {% if facebook %}
+                        <a href="{{ facebook }}">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
-                        <a href="">
+                        {% endif %}
+                        {% if twitter %}
+                        <a href="{{ twitter }}">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
-                        <a href="">
-                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                        </a>
-                        <a href="">
+                        {% endif %}
+                        {% if instagram %}
+                        <a href="{{ instagram }}">
                             <i class="fa fa-instagram" aria-hidden="true"></i>
                         </a>
+                        {% endif %}
+                        {% if linkedin %}
+                        <a href="{{ linkedin }}">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                        {% if linkedin %}
+                        <a href="{{ youtube }}">
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                        {% if linkedin %}
+                        <a href="{{ vk }}">
+                            <i class="fa fa-vk" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -86,7 +118,7 @@
         <div class="container">
             <p>
                 &copy; <span id="displayYear"></span> All Rights Reserved By
-                <a href="https://html.design/">Free Html Templates</a>
+                <a href="/">{{ site_name }}</a>
             </p>
         </div>
     </footer>

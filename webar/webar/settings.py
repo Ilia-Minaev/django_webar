@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'debug_toolbar',
 
+    'constants.apps.ConstantsConfig',
     'blog.apps.BlogConfig',
 ]
 
