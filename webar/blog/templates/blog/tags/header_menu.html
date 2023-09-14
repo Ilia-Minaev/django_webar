@@ -2,11 +2,11 @@
     {% for m_item in menu_items %}
         {% if forloop.counter == 1 %}
         <li class="nav-item ">
-            <a class="nav-link" href="/">{{ m_item.title }}</a>
+            <a class="nav-link" title="{{ m_item.title }}" href="/">{{ m_item.title }}</a>
         </li>
         {% else %}
         <li class="nav-item ">
-            <a class="nav-link" href="/{{ m_item.slug }}/">{{ m_item.title }}</a>
+            <a class="nav-link" title="{{ m_item.title }}" href="/{{ m_item.slug }}/">{{ m_item.title }}</a>
         </li>
         {% endif %}
     {% endfor %}

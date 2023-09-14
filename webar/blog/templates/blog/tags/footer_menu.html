@@ -1,10 +1,9 @@
 <div class="info_links">
-
     {% for m_item in menu_items %}
         {% if forloop.counter == 1 %}
-            <a href="/">{{ m_item.title }}</a>
+            <a title="{{ m_item.title }}" href="/">{{ m_item.title }}</a>
         {% else %}
-            <a href="/{{ m_item.slug }}/">{{ m_item.title }}</a>
+            <a title="{{ m_item.title }}" href="/{{ m_item.slug }}/">{{ m_item.title }}</a>
         {% endif %}
     {% endfor %}
 </div>

@@ -25,11 +25,16 @@
 
 <body>
 
-    {% include 'inc/_header.html' %}
-
+    
+    {% block header %}
+        {% include 'inc/_header.html' %}
+    {% endblock %}
+    
     {% block main %}{% endblock %}
-
-    {% include 'inc/_footer.html' %}
+    
+    {% block footer %}
+        {% include 'inc/_footer.html' %}
+    {% endblock %}
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>

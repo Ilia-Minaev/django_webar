@@ -33,12 +33,6 @@ class PageView(DataMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        #page = Page.objects.get(slug=self.kwargs['slug'])
-        #context['title'] = page.title
-        #context['description'] = page.description
-        #context['meta_title'] = page.meta_title or page.title
-        #context['meta_description'] = page.meta_description
-        #context['meta_keywords'] = page.meta_keywords
         context_mixin = self.get_user_base_context()
         context = context | context_mixin
         return context

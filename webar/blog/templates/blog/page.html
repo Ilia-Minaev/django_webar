@@ -1,11 +1,15 @@
-{% extends 'base.html' %}
+{% extends './base_blog.html' %}
+
+{% block header %}
+    {% include './inc/_header.html' %}
+{% endblock %}
 
 {% block main %}
 
-{% include './sections/_service.html' %}
-{% include './sections/_about.html' %}
-{% include './sections/_case.html' %}
-{% include './sections/_client.html' %}
-{% include './sections/_contact.html' %}
+
+    {% include './sections/_about.html' %}
+    {% include './sections/_case.html' %}
+    {% include './sections/_client.html' %}
+    {% include './sections/_contact.html' %}
 
 {% endblock %}
