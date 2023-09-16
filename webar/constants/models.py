@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.safestring import mark_safe
 
 
 
@@ -22,3 +23,27 @@ class Constants(models.Model):
     class Meta:
         verbose_name = 'Constant'
         verbose_name_plural = 'Constants'
+
+class Slider(models.Model):
+    action = models.BooleanField(default=True)
+    title = models.CharField(max_length=128, blank=False, verbose_name='title')
+    description = models.TextField(max_length=512, blank=True, verbose_name='description')
+    image = models.ImageField(upload_to='uploads/slider/', blank=True, verbose_name='image')
+    button_title = models.CharField(max_length=64, blank=True, verbose_name='button title')
+    button_slug = models.CharField(max_length=256, blank=True, verbose_name='button slug')
+
+    def __str__(self) -> str:
+        return self.title
+    
+    def show_img(self):
+        if self.image:
+            return mark_safe(u'<a href="{0}" target="_blank"><img src="{0}" width="100" height="100"></a>'.format(self.image.url))
+        else:
+            return '<div>No photo</div>'
+        
+    show_img.short_description = 'Image'
+    show_img.allow_tags = True
+    
+    class Meta:
+        verbose_name = 'Slider'
+        verbose_name_plural = 'Sliders'

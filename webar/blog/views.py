@@ -5,12 +5,20 @@ from django.urls import reverse_lazy
 
 from blog.models import Page
 from blog.utils import DataMixin
+from constants.models import Slider
 
 # Create your views here.
 
 class HomeView(DataMixin, ListView):
     model = Page
     template_name = 'blog/index.html'
+    context_object_name = 'slider'
+
+    def get_queryset(self):
+        #context = super().get_queryset()
+        slider = Slider.objects.filter(action=True)
+        return slider
+    
 
     def get_context_data(self, **kwargs):
         self.kwargs['slug'] = 'home'
