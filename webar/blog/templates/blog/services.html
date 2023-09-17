@@ -1,3 +1,10 @@
+{% extends './base_blog.html' %}
+
+{% block header %}
+    {% include './inc/_header.html' %}
+{% endblock %}
+
+{% block main %}
 {% load static %}
 <!-- service section -->
 <section class="service_section layout_padding">
@@ -23,14 +30,12 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         </p>
-                        <!--
                         <a href="" class="">
                             <span>
                                 Read More
                             </span>
                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                         </a>
-                        -->
                     </div>
                 </div>
             </div>
@@ -46,14 +51,12 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         </p>
-                        <!--
                         <a href="" class="">
                             <span>
                                 Read More
                             </span>
                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                         </a>
-                        -->
                     </div>
                 </div>
             </div>
@@ -69,14 +72,12 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         </p>
-                        <!--
                         <a href="" class="">
                             <span>
                                 Read More
                             </span>
                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                         </a>
-                        -->
                     </div>
                 </div>
             </div>
@@ -92,23 +93,17 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         </p>
-                        <!--
                         <a href="" class="">
                             <span>
                                 Read More
                             </span>
                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                         </a>
-                        -->
                     </div>
                 </div>
             </div>
         </div>
-        <div class="btn-box">
-            <a class="btn-custom" href="{% url 'blog:services' %}">
-                View More
-            </a>
-        </div>
     </div>
 </section>
 <!-- end service section -->
+{% endblock %}

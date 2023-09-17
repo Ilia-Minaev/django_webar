@@ -88,3 +88,42 @@ class ArticleSingleView(DataMixin, ListView):
         context = context | context_page | context_constants
 
         return context
+    
+class AboutView(DataMixin, ListView):
+    model = Page
+    template_name = 'blog/about.html'
+
+    def get_context_data(self, **kwargs):
+        self.kwargs['page_slug'] = self.request.path.replace('/', '')
+        context = super().get_context_data(**kwargs)
+        context_page = self.get_page_context()
+        context_constants = self.get_constants()
+        context = context | context_page | context_constants
+        
+        return context
+    
+class ServicesView(DataMixin, ListView):
+    model = Page
+    template_name = 'blog/services.html'
+
+    def get_context_data(self, **kwargs):
+        self.kwargs['page_slug'] = self.request.path.replace('/', '')
+        context = super().get_context_data(**kwargs)
+        context_page = self.get_page_context()
+        context_constants = self.get_constants()
+        context = context | context_page | context_constants
+
+        return context
+    
+class ContactView(DataMixin, ListView):
+    model = Page
+    template_name = 'blog/contact.html'
+
+    def get_context_data(self, **kwargs):
+        self.kwargs['page_slug'] = self.request.path.replace('/', '')
+        context = super().get_context_data(**kwargs)
+        context_page = self.get_page_context()
+        context_constants = self.get_constants()
+        context = context | context_page | context_constants
+
+        return context

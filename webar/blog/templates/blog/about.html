@@ -1,0 +1,35 @@
+{% extends './base_blog.html' %}
+
+{% block header %}
+    {% include './inc/_header.html' %}
+{% endblock %}
+
+{% block main %}
+{% load static %}
+<!-- about section -->
+<section class="layout_padding">
+    <div class="container  ">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <div class="heading_container">
+                        <h2>
+                            About Us
+                        </h2>
+                    </div>
+                    <div>
+                        {{ description }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <div class="img-box">
+                    <img src="{% static 'blog/images/about-img.png' %}" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- end about section -->
+{% endblock %}
