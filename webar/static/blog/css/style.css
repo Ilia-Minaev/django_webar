@@ -864,4 +864,8 @@ a:focus {
 .footer_section p a {
   color: inherit;
 }
+
+.card {
+  border-color: #7335b7;
+}
 /*# sourceMappingURL=style.css.map */

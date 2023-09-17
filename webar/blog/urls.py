@@ -20,10 +20,14 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from blog.views import HomeView, HomeRedirectView, PageView
+from blog.views import HomeView, HomeRedirectView, PageView, ArticlesView, ArticleSingleView
+
+app_name = 'blog'
 
 urlpatterns = [
     path('', HomeView.as_view() , name='home'),
     path('home/', HomeRedirectView.as_view(), name='home_redirect'),
-    path('<slug>/', PageView.as_view() , name='page'),
+    path('blog/', ArticlesView.as_view(), name='articles'),
+    path('blog/<slug:article_slug>/', ArticleSingleView.as_view(), name='article-single'),
+    path('<slug:page_slug>/', PageView.as_view() , name='page'),
 ]
