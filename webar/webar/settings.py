@@ -152,28 +152,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # https://pypi.org/project/django-ckeditor/
-#CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 #CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
-#CKEDITOR_CONFIGS = {
-#    'awesome_ckeditor': {
-#        'toolbar': 'Basic',
-#    },
-#}
-#CKEDITOR_CONFIGS = {
-#    'default': {
-#        'toolbar': 'full',
-#        #'height': 300,
-#        #'width': 300,
-#    },
-#}
-
-#django-debug-toolbar
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    # ...
-]
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -241,3 +221,10 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+#django-debug-toolbar
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
