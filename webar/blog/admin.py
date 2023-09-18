@@ -1,14 +1,21 @@
 from django.contrib import admin
 
 from blog.models import Page, Articles
+from blog.forms import PageAdminForm, ArticlesAdminForm
+
 
 class PageAdmin(admin.ModelAdmin):
+    form = PageAdminForm
+
     list_display = ('title', 'date_updated')
     list_display_links = ('title',)
     readonly_fields = ('date_created', 'date_updated')
     prepopulated_fields = {'slug': ('title',)}
 
+
 class ArticlesAdmin(admin.ModelAdmin):
+    form = ArticlesAdminForm
+
     list_display = ('action', 'title', 'show_img')
     list_display_links = ('title',)
     fields = ('action', 'title', 'slug', 'show_img', 'image', 'description', 'meta_title',

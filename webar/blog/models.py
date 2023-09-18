@@ -1,12 +1,14 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.safestring import mark_safe
+from ckeditor.fields import RichTextField
 
 
 class Page(models.Model):
     title = models.CharField(max_length=128, blank=False, verbose_name='title')
     slug = models.SlugField(max_length=256, unique=True, verbose_name='url')
     description = models.TextField(blank=True, verbose_name='description')
+    #description = RichTextField(blank=True, null=True)
     meta_title = models.CharField(max_length=128, blank=True, verbose_name='m_title')
     meta_keywords = models.CharField(max_length=128, blank=True, verbose_name='m_keywords')
     meta_description = models.CharField(max_length=128, blank=True, verbose_name='m_description')

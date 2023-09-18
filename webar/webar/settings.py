@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ckeditor',
+    'ckeditor_uploader',
     'debug_toolbar',
 
     'constants.apps.ConstantsConfig',
@@ -130,10 +131,10 @@ STATIC_URL = 'static/'
 # https://django.fun/en/docs/django/4.1/howto/static-files/#deployment
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # https://django.fun/en/docs/django/4.1/howto/static-files/#configuring-static-files
-STATICFILES_DIRS = [
-    #BASE_DIR / "static",
-    #'/var/www/static/',
-]
+#STATICFILES_DIRS = [
+#    BASE_DIR / "static",
+#    '/var/www/static/',
+#]
 # https://django.fun/ru/docs/django/4.1/ref/settings/#staticfiles-finders
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -151,21 +152,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # https://pypi.org/project/django-ckeditor/
-CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
+#CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = 'uploads/'
-CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
-CKEDITOR_CONFIGS = {
-    'awesome_ckeditor': {
-        'toolbar': 'Basic',
-    },
-}
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'height': 300,
-        'width': 300,
-    },
-}
+#CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+#CKEDITOR_CONFIGS = {
+#    'awesome_ckeditor': {
+#        'toolbar': 'Basic',
+#    },
+#}
+#CKEDITOR_CONFIGS = {
+#    'default': {
+#        'toolbar': 'full',
+#        #'height': 300,
+#        #'width': 300,
+#    },
+#}
 
 #django-debug-toolbar
 INTERNAL_IPS = [
@@ -173,3 +174,70 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono-lisa',
+        'width': '100%',
+        # 'skin': 'office2013',
+        'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
+        ],
+        'toolbar_YourCustomToolbarConfig': [
+            {'name': 'document', 'items': ['Source', '-', 'Preview', 'Print', '-',]},
+            #{'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            #{'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
+            #{'name': 'forms',
+            # 'items': ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
+            #           'HiddenField']},
+            #'/',
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-',
+                       #'BidiLtr', 'BidiRtl', 'Language'
+                      ]},
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {'name': 'insert',
+             'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 
+                 #'PageBreak', 'Iframe'
+                      ]},
+            '/',
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+
+            '/',  # put this to force next toolbar on new line
+            {'name': 'yourcustomtools', 'items': [
+                # put the name of your editor.ui.addButton here
+                'Preview',
+                'Maximize',
+            ]},
+        ],
+        'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
+        # 'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
+        # 'height': 291,
+        # 'width': '100%',
+        # 'filebrowserWindowHeight': 725,
+        # 'filebrowserWindowWidth': 940,
+        # 'toolbarCanCollapse': True,
+        # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
+        'tabSpaces': 4,
+        'extraPlugins': ','.join([
+            'uploadimage', # the upload image feature
+            # your extra plugins here
+            'div',
+            'autolink',
+            'autoembed',
+            'embedsemantic',
+            'autogrow',
+            # 'devtools',
+            'widget',
+            'lineutils',
+            'clipboard',
+            'dialog',
+            'dialogui',
+            'elementspath'
+        ]),
+    }
+}
